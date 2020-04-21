@@ -13,3 +13,4 @@ Users wanting to use this will need to create an appSecrets.json file with the f
   }
 }
  ```
+If you would like a custom join sound please submit a PR with your Twitch username and the sound you wish to play and we will add it to the bots configuration.
