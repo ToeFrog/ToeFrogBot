@@ -7,12 +7,14 @@ using TwitchLib.Client.Models;
 using TwitchLib.Communication.Clients;
 using TwitchLib.Communication.Models;
 
-namespace FrogBot
+namespace ToeFrogBot
 {
     public class Bot
     {
         TwitchClient client;
         SoundProcessor soundProcessor = SoundProcessor.Current;
+
+        public List<UserSound> UserSounds { get; set; }
 
         public Bot(string clientToken)
         {
@@ -48,6 +50,18 @@ namespace FrogBot
         private void Client_OnUserJoined(object sender, OnUserJoinedArgs e)
         {
             Console.WriteLine($"{e.Username} joined the channel. Welcome!");
+            // Check userSounds to see if the user has a sound file
+
+            UserSound userSound = this.UserSounds.Find(s => s.Username.ToLower() == e.Username.ToLower());
+            if (userSound != null)
+            {
+                // User was found, play the sound
+                if (SoundCommand.Exists(userSound.Sound))
+                {
+                    soundProcessor.Queue(new SoundCommand(userSound.Sound));
+                }
+            }
+
         }
 
         private void Client_OnChatCommandReceived(object sender, OnChatCommandReceivedArgs e)

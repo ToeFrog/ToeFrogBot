@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace FrogBot
+namespace ToeFrogBot
 {
     public class SoundCommand : Command, IDisposable
     {

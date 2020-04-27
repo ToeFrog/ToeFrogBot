@@ -12,3 +12,7 @@ Guitar Lights:
 - Purchase LEDs and Board
 - Wire things up
 - Programatically change LED colors VIA chat
+
+User Join Sounds:
+- Update configuration to play join sounds for users that are configured. When a user joins the channel, see if the sound exists, if so, play the sound.
+

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FrogBot
+namespace ToeFrogBot
 {
     public abstract class Command
     {
