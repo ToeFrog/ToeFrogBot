@@ -13,4 +13,4 @@ Users wanting to use this will need to create an appSecrets.json file with the f
   }
 }
  ```
-If you would like a custom join sound please submit a PR with your Twitch username and the sound you wish to play and we will add it to the bots configuration.
+If you would like a custom join sound please submit a PR with an adjustment to the userSounds.json file. Add your Twitch username and the sound that you want to play when you join the channel. If it is a new sound please include the .mp3 file in your PR.
