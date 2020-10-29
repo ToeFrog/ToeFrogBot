@@ -8,6 +8,7 @@ namespace ToeFrogBot
     {
         public string Username { get; set; }
 
+        // TODO: Rename this to something that makes more sense like "file"
         public string Sound { get; set; }
     }
 }

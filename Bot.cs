@@ -15,10 +15,11 @@ namespace ToeFrogBot
         SoundProcessor soundProcessor = SoundProcessor.Current;
 
         public List<UserSound> UserSounds { get; set; }
+        public List<ChatCommand> ChatCommands { get; set; }
 
         public Bot(string clientToken)
         {
-            ConnectionCredentials credentials = new ConnectionCredentials("ToeFrog", clientToken);
+            ConnectionCredentials credentials = new ConnectionCredentials("ToeFrogBot", clientToken);
             var clientOptions = new ClientOptions
             {
                 MessagesAllowedInPeriod = 750,
@@ -37,6 +38,7 @@ namespace ToeFrogBot
             client.OnChatCommandReceived += Client_OnChatCommandReceived;
             client.OnUserJoined += Client_OnUserJoined;
             client.OnUserLeft += Client_OnUserLeft;
+            client.OnWhisperSent += Client_OnWhisperSent;
 
             client.Connect();
         }
@@ -50,8 +52,8 @@ namespace ToeFrogBot
         private void Client_OnUserJoined(object sender, OnUserJoinedArgs e)
         {
             Console.WriteLine($"{e.Username} joined the channel. Welcome!");
+            
             // Check userSounds to see if the user has a sound file
-
             UserSound userSound = this.UserSounds.Find(s => s.Username.ToLower() == e.Username.ToLower());
             if (userSound != null)
             {
@@ -61,7 +63,6 @@ namespace ToeFrogBot
                     soundProcessor.Queue(new SoundCommand(userSound.Sound));
                 }
             }
-
         }
 
         private void Client_OnChatCommandReceived(object sender, OnChatCommandReceivedArgs e)
@@ -109,6 +110,11 @@ namespace ToeFrogBot
         private void Client_OnWhisperReceived(object sender, OnWhisperReceivedArgs e)
         {
             Console.WriteLine("Hey! We have a whisper waiting!");
+        }
+
+        private void Client_OnWhisperSent(object sender, OnWhisperSentArgs e)
+        {
+            Console.WriteLine($"A whisper was just sent to {e.Username}");
         }
 
         private void Client_OnNewSubscriber(object sender, OnNewSubscriberArgs e)

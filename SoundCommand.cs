@@ -21,7 +21,7 @@ namespace ToeFrogBot
             this.AudioFile = _soundAssetsPath + name + ".mp3";
         }
 
-        public static bool Exists(string name)
+        public override bool Exists(string name)
         {
             string soundPath = _soundAssetsPath + name + ".mp3";
             var f = new FileInfo(soundPath);
@@ -43,7 +43,7 @@ namespace ToeFrogBot
             }
         }
 
-        public override void Stop()
+        public void Stop()
         {
             this.WaveOutDevice.Stop();
             this.WaveOutDevice.Dispose();

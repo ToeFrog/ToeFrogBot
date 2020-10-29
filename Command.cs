@@ -8,6 +8,6 @@ namespace ToeFrogBot
     {
         public abstract void Execute();
 
-        public abstract void Stop();
+        public abstract bool Exists(string name);
     }
 }
