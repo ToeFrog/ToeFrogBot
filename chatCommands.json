@@ -4,12 +4,6 @@
     "Message": "You can find ToeFrog's code over at the hub of gits (Github) https://github.com/ToeFrog"
   },
   {
-    "Name": "backseat",
-    "UserType": "Moderator",
-    // TODO: Fix the verbage on this and make it a bit more gentle
-    "Message": "Please do not backseat code. If ToeFrog wants chat to help he will specifically ask."
-  },
-  {
     "Name": "so",
     "Message": "Shout out to {0}, check out their stream at https://twitch.tv/{0}"
   },
@@ -23,6 +17,6 @@
   },
   {
     "Name": "water",
-    "Message": "Listen to @chefbrent 's advice and grab some water and make sure you're staying hydrated!"
+    "Message": "Listen to ChefBrent's advice and grab some water and make sure you're staying hydrated!"
   }
 ]
